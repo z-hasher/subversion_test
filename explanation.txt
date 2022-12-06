@@ -1,0 +1,27 @@
+1. Commit to main repo
+To track progress in the "main" directory for any modification:
+`git add .`
+`git commit -m 'my modification message'`
+`git push`
+
+2. Create a repo tracking subfolder:
+In the subfolder ("sub1" as example) of the main repo
+`git init .`
+`mv .git .git_sub1`
+Then you need to create a new git repo for it, just go to the desirable
+git platform (github or bitbucket etc) and create a new repo, and add
+remote:
+`git --git-dir=.git_sub1 remote add origin git@github.com:NEW_REPO.git`
+Let's call the new repo "sub-repo"
+
+3. Commit to the sub-repo
+Note that git history in 1 is not tracked in the sub-repo. Default git
+commands will look into .git folder to find remote and operates with
+that remote. To commit to the sub-repo, we need to tell git the "correct"
+".git" folder to look into by providing --git-dir just as what we did
+in last command.
+`git --git-dir=.git_sub1 add .`
+`git --git-dir=.git_sub1 commit -m 'my subrepo message'`
+`git --git-dir=.git_sub1 push`
+
+Note that the commit trackings above are independent of each other

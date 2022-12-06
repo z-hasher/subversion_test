@@ -3,3 +3,9 @@
 	filemode = true
 	bare = false
 	logallrefupdates = true
+[remote "origin"]
+	url = git@github.com:z-hasher/subversion_test.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
